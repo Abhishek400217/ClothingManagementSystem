@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Add Product";
+}
+
+<div class="page-title">
+
+    <div>
+
+        <h1>Add Product</h1>
+
+        <p>Create a new clothing product</p>
+
+    </div>
+
+</div>
+
+<div class="glass-card">
+
+    <form>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label>Product Name</label>
+
+                <input type="text"
+                       placeholder="Enter Product Name" />
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Category</label>
+
+                <select>
+
+                    <option>Select Category</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Price</label>
+
+                <input type="number"
+                       placeholder="₹ 0.00" />
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Stock</label>
+
+                <input type="number"
+                       placeholder="0" />
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Description</label>
+
+                <textarea rows="5"
+                          placeholder="Product Description"></textarea>
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Product Image</label>
+
+                <label class="upload-box">
+
+                    <i class="ri-image-add-line"></i>
+
+                    <span>Choose Product Image</span>
+
+                    <input type="file" hidden />
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <button type="submit"
+                    class="btn-primary">
+
+                <i class="ri-save-3-line"></i>
+
+                Save Product
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

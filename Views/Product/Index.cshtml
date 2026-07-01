@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Products";
+}
+<div class="page-title">
+
+    <div>
+
+        <span class="hero-badge">
+            PRODUCT MANAGEMENT
+        </span>
+
+        <h1>Products</h1>
+
+        <p>
+            Manage inventory, stock and product catalogue.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="glass-card">
+
+    <div class="table-header">
+
+        <input type="text"
+               class="search-input"
+               placeholder="Search by Product Name..." />
+
+        <a href="@Url.Action("Create","Product")"
+           class="btn-primary">
+
+            <i class="ri-add-line"></i>
+
+            Add Product
+
+        </a>
+
+    </div>
+
+    <table class="product-table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Image</th>
+
+                <th>Name</th>
+
+                <th>Category</th>
+
+                <th>Price</th>
+
+                <th>Stock</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td colspan="7">
+
+                    No Products Available
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
