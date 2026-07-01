@@ -1,0 +1,142 @@
+﻿.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 290px;
+    background: #ffffff;
+    border-right: 1px solid #ECE5DB;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/*=========================
+TOP
+=========================*/
+
+.sidebar-top {
+    padding: 34px 30px;
+    border-bottom: 1px solid #F2ECE3;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.brand-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg,#D7A656,#B88433);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-family: 'Playfair Display',serif;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.brand h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.brand span {
+    font-size: 14px;
+    color: #8A8A8A;
+}
+
+/*=========================
+MENU
+=========================*/
+
+.sidebar-menu {
+    flex: 1;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+}
+
+    .sidebar-menu a {
+        height: 58px;
+        padding: 0 18px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: #555;
+        transition: .25s;
+    }
+
+        .sidebar-menu a i {
+            font-size: 22px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .sidebar-menu a:hover {
+            background: #F8F5EF;
+            color: #C9974D;
+        }
+
+        .sidebar-menu a.active {
+            background: linear-gradient(135deg,#D6A354,#BE8737);
+            color: #fff;
+            box-shadow: 0 14px 35px rgba(201,151,77,.25);
+        }
+/*=========================
+BOTTOM
+=========================*/
+
+.sidebar-bottom {
+    padding: 22px;
+    border-top: 1px solid #EFE8DE;
+}
+
+    .sidebar-bottom a {
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-decoration: none;
+        border-radius: 18px;
+        background: #F7F3EC;
+        color: #444;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+        .sidebar-bottom a:hover {
+            background: #E74C3C;
+            color: white;
+        }
+
+    .sidebar-bottom i {
+        font-size: 20px;
+    }
+
+/*=========================
+SCROLLBAR
+=========================*/
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background: #D8B06A;
+    border-radius: 20px;
+}

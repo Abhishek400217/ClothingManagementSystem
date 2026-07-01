@@ -1,61 +1,418 @@
-﻿@{
+﻿@model ClotheManagementSystem.Models.DashboardViewModel
+
+@{
     ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="dashboard-wrapper">
 
-<div class="dashboard-container">
+    <!-- HERO -->
 
-    <header class="topbar">
-        <div>
-            <h2>Good Morning, Admin 👋</h2>
-            <p>Welcome to Clothing Management System</p>
-        </div>
+    <section class="hero-section">
 
-        <input type="text" placeholder="Search..." class="search-box" />
-    </header>
+        <div class="hero-left">
 
-    <section class="hero">
+            <span class="hero-badge">
+                CLOTHING MANAGEMENT
+            </span>
 
-        <div class="hero-text">
-            <h1>Manage.<br>Track.<br>Grow.</h1>
+            <h1>
+                Welcome Back,
+                <span>Admin</span>
+                <span class="wave">👋</span>
+            </h1>
 
-            <p>Everything in Style.</p>
+            <p>
+                Monitor inventory, products, orders and business performance
+                from one intelligent dashboard built for modern retail.
+            </p>
 
-            <button>View Reports</button>
+            <div class="hero-info">
 
-        </div>
+                <div class="hero-item">
+                    <h3>@DateTime.Now.ToString("dddd")</h3>
+                    <span>Today</span>
+                </div>
 
-        <div class="hero-image">
+                <div class="hero-item">
+                    <h3>@DateTime.Now.ToString("dd MMM yyyy")</h3>
+                    <span>Date</span>
+                </div>
 
-            <div class="placeholder">
-                Clothing Banner
+                <div class="hero-item">
+                    <h3>Online</h3>
+                    <span>System Status</span>
+                </div>
+
             </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <a href="#" class="btn-primary">
+
+                <i class="ri-add-line"></i>
+
+                Add Product
+
+            </a>
 
         </div>
 
     </section>
 
-    <section class="cards">
 
-        <div class="card">
-            <h3>Total Products</h3>
-            <h1>632</h1>
+
+    <!-- STATS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <span>Total Products</span>
+
+                <i class="ri-shirt-line"></i>
+
+            </div>
+
+            <h2>
+
+                @Model.TotalProducts
+
+            </h2>
+
+            <small>
+
+                Registered Products
+
+            </small>
+
         </div>
 
-        <div class="card">
-            <h3>Categories</h3>
-            <h1>26</h1>
+
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <span>Categories</span>
+
+                <i class="ri-apps-2-line"></i>
+
+            </div>
+
+            <h2>
+
+                @Model.TotalCategories
+
+            </h2>
+
+            <small>
+
+                Active Categories
+
+            </small>
+
         </div>
 
-        <div class="card">
-            <h3>Low Stock</h3>
-            <h1>14</h1>
+
+
+        <div class="stat-card warning">
+
+            <div class="stat-top">
+
+                <span>Low Stock</span>
+
+                <i class="ri-alarm-warning-line"></i>
+
+            </div>
+
+            <h2>
+
+                @Model.LowStockProducts
+
+            </h2>
+
+            <small>
+
+                Needs Attention
+
+            </small>
+
         </div>
 
-        <div class="card">
-            <h3>Out Of Stock</h3>
-            <h1>4</h1>
+
+
+        <div class="stat-card success">
+
+            <div class="stat-top">
+
+                <span>Inventory Value</span>
+
+                <i class="ri-funds-box-line"></i>
+
+            </div>
+
+            <h2>
+
+                ₹@Model.TotalRevenue
+
+            </h2>
+
+            <small>
+
+                Current Value
+
+            </small>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MAIN GRID -->
+
+    <section class="main-grid">
+
+        <!-- LEFT -->
+
+        <div class="left-column">
+
+
+
+            <!-- ANALYTICS -->
+
+            <div class="glass-card analytics-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>
+
+                            Inventory Analytics
+
+                        </h3>
+
+                        <span>
+
+                            Live business insights
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="chart-placeholder">
+
+                    <div class="chart-circle">
+
+                        <i class="ri-line-chart-line"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Analytics will appear here
+
+                    </h4>
+
+                    <p>
+
+                        After SQL integration, revenue, stock trend and category analytics will automatically load.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RECENT PRODUCTS -->
+
+            <div class="glass-card">
+
+                <div class="card-header">
+
+                    <h3>
+
+                        Recent Products
+
+                    </h3>
+
+                </div>
+
+
+
+                @if (Model.RecentProducts.Any())
+                {
+
+                    <div class="product-list">
+
+                        @foreach (var item in Model.RecentProducts)
+                        {
+
+                            <div class="product-item">
+
+                                <div class="product-icon">
+
+                                    <i class="ri-shirt-line"></i>
+
+                                </div>
+
+                                <div class="product-info">
+
+                                    <h4>
+
+                                        @item.ProductName
+
+                                    </h4>
+
+                                    <span>
+
+                                        @item.Category
+
+                                    </span>
+
+                                </div>
+
+                                <div class="product-stock">
+
+                                    @item.Stock
+
+                                </div>
+
+                            </div>
+
+                        }
+
+                    </div>
+
+                }
+                else
+                {
+
+                    <div class="empty-box">
+
+                        <i class="ri-inbox-archive-line"></i>
+
+                        <h4>
+
+                            No Products Found
+
+                        </h4>
+
+                        <p>
+
+                            Products added from SQL Server will automatically appear here.
+
+                        </p>
+
+                    </div>
+
+                }
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT -->
+
+        <div class="right-column">
+
+
+
+            <div class="glass-card action-card">
+
+                <h3>
+
+                    Quick Actions
+
+                </h3>
+
+                <button>
+
+                    Add Product
+
+                </button>
+
+                <button>
+
+                    Add Category
+
+                </button>
+
+                <button>
+
+                    View Reports
+
+                </button>
+
+            </div>
+
+
+
+            <div class="glass-card">
+
+                <h3>
+
+                    Low Stock
+
+                </h3>
+
+                <div class="empty-small">
+
+                    <i class="ri-alarm-warning-line"></i>
+
+                    <p>
+
+                        Low stock items will appear here.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="glass-card">
+
+                <h3>
+
+                    Recent Activity
+
+                </h3>
+
+                <div class="empty-small">
+
+                    <i class="ri-history-line"></i>
+
+                    <p>
+
+                        Latest inventory activity will appear here.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
         </div>
 
     </section>
 
 </div>
+@section scripts{
+
+    <script src="~/Scripts/dashboard.js"></script>
+
+}
