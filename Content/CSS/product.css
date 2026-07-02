@@ -412,3 +412,29 @@ FORM
         gap: 20px;
     }
 }
+.success-alert {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: #16a34a;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    z-index: 9999;
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    animation: slideIn .4s ease;
+}
+
+@keyframes slideIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

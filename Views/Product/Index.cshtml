@@ -1,6 +1,12 @@
-﻿@{
-    ViewBag.Title = "Products";
+﻿@model IEnumerable<ClotheManagementSystem.Models.Product>
+
+@if (TempData["Success"] != null)
+{
+    <div class="success-alert">
+        @TempData["Success"]
+    </div>
 }
+
 <div class="page-title">
 
     <div>
@@ -65,18 +71,92 @@
 
         <tbody>
 
-            <tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
 
-                <td colspan="7">
+                        <td>@item.ProductId</td>
 
-                    No Products Available
+                        <td>
+                            <img src="@(string.IsNullOrEmpty(item.ImageUrl) ? Url.Content("~/Content/images/no-image.png") : item.ImageUrl)"
+                                 width="50"
+                                 height="50"
+                                 style="border-radius:8px;" />
+                        </td>
 
-                </td>
+                        <td>@item.ProductName</td>
 
-            </tr>
+                        <td>@item.Category</td>
+
+                        <td>₹@item.Price</td>
+
+                        <td>@item.Stock</td>
+
+                        <td>
+
+                            <a href="@Url.Action("Edit","Product",
+        new { id=item.ProductId })"
+                               class="btn-edit">
+
+                                <i class="ri-pencil-line"></i>
+
+                            </a>
+
+                            <a href="@Url.Action("Delete","Product",
+        new { id=item.ProductId })"
+                               class="btn-delete"
+                               onclick="return confirm('Delete this product?');">
+
+                                <i class="ri-delete-bin-6-line"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" style="text-align:center;padding:40px;">
+                        No Products Available
+                    </td>
+                </tr>
+            }
 
         </tbody>
 
     </table>
 
 </div>
+
+@if (TempData["Success"] != null)
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '@TempData["Success"]',
+            showConfirmButton: false,
+            timer: 1800
+        });
+    </script>
+}
+
+<script>
+    setTimeout(function () {
+
+        var alert = document.querySelector(".success-alert");
+
+        if (alert) {
+
+            alert.style.display = "none";
+
+        }
+
+    }, 3000);
+</script>

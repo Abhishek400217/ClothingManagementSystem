@@ -4,17 +4,18 @@ namespace ClotheManagementSystem.Models
 {
     public class Product
     {
-        [Key]
         public int ProductId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Product Name Required")]
         public string ProductName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Category Required")]
         public string Category { get; set; }
 
+        [Required]
         public decimal Price { get; set; }
 
+        [Required]
         public int Stock { get; set; }
 
         public string Description { get; set; }

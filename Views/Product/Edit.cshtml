@@ -8,9 +8,11 @@
 
     <div>
 
-        <h1>Add Product</h1>
+        <h1>Edit Product</h1>
 
-        <p>Create a new clothing product</p>
+        <p>Update existing product</p>
+
+       
 
     </div>
 
@@ -18,14 +20,13 @@
 
 <div class="glass-card">
 
-    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+    @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
     {
-        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-        @Html.HiddenFor(m => m.IsActive)
 
         <div class="form-grid">
 
             <div class="form-group">
+                @Html.HiddenFor(m => m.ProductId)
 
                 <label>Product Name</label>
 
