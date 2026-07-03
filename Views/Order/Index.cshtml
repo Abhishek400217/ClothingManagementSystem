@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ClotheManagementSystem.Models.Order>
+
+<div class="page-title">
+
+    <div>
+
+        <span class="hero-badge">
+            ORDER MANAGEMENT
+        </span>
+
+        <h1>Orders</h1>
+
+        <p>Manage customer orders.</p>
+
+    </div>
+
+    <a href="@Url.Action("Create","Order")"
+       class="btn-primary">
+
+        <i class="ri-add-line"></i>
+
+        New Order
+
+    </a>
+
+</div>
+
+<div class="glass-card">
+
+    <table class="product-table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.OrderId</td>
+
+                        <td>@item.CustomerName</td>
+
+                        <td>@item.ProductName</td>
+
+                        <td>@item.Quantity</td>
+
+                        <td>₹@item.Price</td>
+
+                        <td>₹@item.TotalAmount</td>
+
+                        <td>@item.Status</td>
+
+                        <td>
+
+                            <a href="@Url.Action("Edit","Order",new{id=item.OrderId})"
+                               class="btn-edit">
+
+                                <i class="ri-pencil-line"></i>
+
+                            </a>
+
+                            <a href="@Url.Action("Delete","Order",new{id=item.OrderId})"
+                               class="btn-delete"
+                               onclick="return confirm('Delete Order?')">
+
+                                <i class="ri-delete-bin-6-line"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="8" style="text-align:center;padding:40px;">
+
+                        No Orders Found
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

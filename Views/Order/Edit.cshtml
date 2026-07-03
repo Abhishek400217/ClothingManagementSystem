@@ -1,0 +1,141 @@
+@model ClotheManagementSystem.Models.Order
+
+@{
+    ViewBag.Title = "Create Order";
+}
+
+<div class="page-title">
+
+    <div>
+
+        <span class="hero-badge">
+            ORDER MANAGEMENT
+        </span>
+
+        <h1>Edit Order</h1>
+
+        <p>Update customer order.</p>
+
+    </div>
+
+</div>
+
+<div class="glass-card">
+
+    @using (Html.BeginForm("Edit", "Order", FormMethod.Post))
+    {
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                @Html.HiddenFor(x => x.OrderId)
+                <label>Customer Name</label>
+
+                @Html.TextBoxFor(x => x.CustomerName,
+                new { @class = "form-control", placeholder = "Customer Name" })
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Product Name</label>
+
+                @Html.TextBoxFor(x => x.ProductName,
+                new { @class = "form-control", placeholder = "Product Name" })
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Quantity</label>
+
+                @Html.TextBoxFor(x => x.Quantity,
+                new { @class = "form-control", type = "number", id = "qty" })
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Price</label>
+
+                @Html.TextBoxFor(x => x.Price,
+                new { @class = "form-control", type = "number", id = "price" })
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Total Amount</label>
+
+                @Html.TextBoxFor(x => x.TotalAmount,
+                new
+                {
+                    @class = "form-control",
+                    id = "total",
+                    @readonly = "readonly"
+                })
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Status</label>
+
+                @Html.DropDownListFor(x => x.Status,
+
+                new SelectList(new[]
+                {
+                    "Pending",
+                    "Processing",
+                    "Completed",
+                    "Cancelled"
+                }),
+
+                "Select Status",
+
+                new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-actions">
+
+            <button type="submit" class="btn-primary">
+
+                <i class="ri-save-3-line"></i>
+
+                Save Order
+
+            </button>
+
+        </div>
+
+    }
+
+</div>
+
+<script>
+
+const qty=document.getElementById("qty");
+
+const price=document.getElementById("price");
+
+const total=document.getElementById("total");
+
+function calc(){
+
+let q=parseFloat(qty.value)||0;
+
+let p=parseFloat(price.value)||0;
+
+total.value=q*p;
+
+}
+
+qty.addEventListener("input",calc);
+
+price.addEventListener("input",calc);
+
+</script>

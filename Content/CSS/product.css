@@ -438,3 +438,17 @@ FORM
         transform: translateX(0);
     }
 }
+.table-header form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+}
+
+    .table-header form input {
+        flex: 1;
+    }
+
+    .table-header form button {
+        width: 55px;
+    }

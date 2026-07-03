@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using ClotheManagementSystem.Models;
 using ClotheManagementSystem.Repository;
-
+using System.Linq;
 namespace ClotheManagementSystem.Controllers
 {
     public class ProductController : Controller
@@ -19,15 +19,17 @@ namespace ClotheManagementSystem.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Create(Product product)
         {
             product.IsActive = true;
 
-            repo.Insert(product);
+            if (repo.Insert(product))
+            {
+                return RedirectToAction("Index");
+            }
 
-            return RedirectToAction("Index");
+            return View(product);
         }
 
         [HttpGet]
@@ -40,13 +42,11 @@ namespace ClotheManagementSystem.Controllers
         [HttpPost]
         public ActionResult Edit(Product product)
         {
-            if (ModelState.IsValid)
+            product.IsActive = true;
+
+            if (repo.Update(product))
             {
-                if (repo.Update(product))
-                {
-                    TempData["Success"] = "Product updated successfully!";
-                    return RedirectToAction("Index");
-                }
+                return RedirectToAction("Index");
             }
 
             return View(product);
@@ -54,11 +54,7 @@ namespace ClotheManagementSystem.Controllers
 
         public ActionResult Delete(int id)
         {
-            if (repo.Delete(id))
-            {
-                TempData["Success"] = "Product deleted successfully!";
-            }
-
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
     }

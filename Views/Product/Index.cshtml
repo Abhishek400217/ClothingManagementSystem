@@ -30,9 +30,20 @@
 
     <div class="table-header">
 
-        <input type="text"
-               class="search-input"
-               placeholder="Search by Product Name..." />
+        @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+        {
+            <input type="text"
+                   name="search"
+                   class="search-input"
+                   placeholder="Search Product..."
+                   value="@Request["search"]" />
+
+            <button type="submit" class="btn-primary">
+
+                <i class="ri-search-line"></i>
+
+            </button>
+        }
 
         <a href="@Url.Action("Create","Product")"
            class="btn-primary">
