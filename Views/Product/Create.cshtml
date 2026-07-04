@@ -1,5 +1,4 @@
 ﻿@model ClotheManagementSystem.Models.Product
-
 @{
     ViewBag.Title = "Add Product";
 }
@@ -21,7 +20,7 @@
     @using (Html.BeginForm("Create", "Product", FormMethod.Post))
     {
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-        @Html.HiddenFor(m => m.IsActive)
+        @Html.HiddenFor(m => m.IsActive, new { Value = "true" })
 
         <div class="form-grid">
 
@@ -94,6 +93,13 @@
             <div class="form-group full">
 
                 <label>Product Image</label>
+
+                <div class="dummy-image">
+
+                    <img src="https://placehold.co/120x120/png?text=👕"
+                         alt="Product" />
+
+                </div>
 
                 @Html.HiddenFor(m => m.ImageUrl)
 

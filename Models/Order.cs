@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ClotheManagementSystem.Models
 {
@@ -23,5 +25,12 @@ namespace ClotheManagementSystem.Models
         public DateTime OrderDate { get; set; }
 
         public string Status { get; set; }
+
+
+        // ADD THESE TWO PROPERTIES
+
+        public int ProductId { get; set; }
+
+        public List<SelectListItem> ProductList { get; set; }
     }
 }

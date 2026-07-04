@@ -50,11 +50,19 @@
 
         <div class="hero-right">
 
-            <a href="#" class="btn-primary">
+            <a href="@Url.Action("Create","Product")"
+               class="btn-primary">
 
                 <i class="ri-add-line"></i>
 
-                Add Product
+                <a href="@Url.Action("Index","Product")"
+                   class="btn-secondary">
+
+                    <i class="ri-list-check-2"></i>
+
+                    View Products
+
+                </a>
 
             </a>
 

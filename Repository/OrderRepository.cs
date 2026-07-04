@@ -93,7 +93,22 @@ namespace ClotheManagementSystem.Repository
 
                 con.Open();
 
-                return cmd.ExecuteNonQuery() > 0;
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    SqlCommand stockCmd = new SqlCommand("USP_UpdateStock", con);
+                    stockCmd.CommandType = CommandType.StoredProcedure;
+
+                    stockCmd.Parameters.AddWithValue("@ProductName", order.ProductName);
+                    stockCmd.Parameters.AddWithValue("@Quantity", order.Quantity);
+
+                    stockCmd.ExecuteNonQuery();
+
+                    return true;
+                }
+
+                return false;
             }
         }
 

@@ -8,9 +8,20 @@ namespace ClotheManagementSystem.Controllers
     {
         ProductRepository repo = new ProductRepository();
 
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var products = repo.GetAll();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.ToLower();
+
+                products = products.Where(x =>
+                    x.ProductName.ToLower().Contains(search) ||
+                    x.Category.ToLower().Contains(search)
+                ).ToList();
+            }
+
             return View(products);
         }
 
@@ -24,8 +35,12 @@ namespace ClotheManagementSystem.Controllers
         {
             product.IsActive = true;
 
+            if (!ModelState.IsValid)
+                return View(product);
+
             if (repo.Insert(product))
             {
+                TempData["Success"] = "Product Added Successfully";
                 return RedirectToAction("Index");
             }
 
@@ -44,8 +59,12 @@ namespace ClotheManagementSystem.Controllers
         {
             product.IsActive = true;
 
+            if (!ModelState.IsValid)
+                return View(product);
+
             if (repo.Update(product))
             {
+                TempData["Success"] = "Product Updated Successfully";
                 return RedirectToAction("Index");
             }
 
@@ -54,7 +73,11 @@ namespace ClotheManagementSystem.Controllers
 
         public ActionResult Delete(int id)
         {
-            repo.Delete(id);
+            if (repo.Delete(id))
+            {
+                TempData["Success"] = "Product Deleted Successfully";
+            }
+
             return RedirectToAction("Index");
         }
     }
