@@ -64,11 +64,11 @@
 
     <div class="sidebar-bottom">
 
-        <a href="@Url.Action("Logout","Account")">
+        <a href="@Url.Action("Logout","Account")"
+           onclick="return logoutConfirm(event,this.href);">
 
             <i class="ri-logout-box-r-line"></i>
-
-            Logout
+            <span>Logout</span>
 
         </a>
 

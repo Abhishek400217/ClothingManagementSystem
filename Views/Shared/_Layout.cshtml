@@ -26,6 +26,7 @@
     <link href="~/Content/CSS/login.css" rel="stylesheet" />
 
     <link href="~/Content/CSS/product.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -57,6 +58,44 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     @RenderSection("scripts", required: false)
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+
+        function logoutConfirm(e, url) {
+
+            e.preventDefault();
+
+            Swal.fire({
+
+                title: 'Logout?',
+
+                text: 'Are you sure you want to logout?',
+
+                icon: 'question',
+
+                showCancelButton: true,
+
+                confirmButtonText: 'Logout'
+
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    window.location.href = url;
+
+                }
+
+            });
+
+            return false;
+
+        }
+
+    </script>
+
 
 </body>
 

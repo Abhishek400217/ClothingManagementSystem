@@ -1,0 +1,102 @@
+@{
+    ViewBag.Title = "Settings";
+}
+
+<div class="page-title">
+
+    <div>
+
+        <span class="hero-badge">
+
+            SYSTEM SETTINGS
+
+        </span>
+
+        <h1>Settings</h1>
+
+        <p>Manage application preferences.</p>
+
+    </div>
+
+</div>
+<div style="display:flex;gap:10px;">
+
+    <button class="btn-primary" onclick="window.print()">
+        <i class="ri-printer-line"></i>
+        Print
+    </button>
+
+    <button class="btn-primary">
+        <i class="ri-file-excel-line"></i>
+        Export Excel
+    </button>
+
+    <button class="btn-primary">
+        <i class="ri-file-pdf-line"></i>
+        Export PDF
+    </button>
+
+</div>
+<div class="glass-card">
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label>Shop Name</label>
+
+            <input class="form-control"
+                   value="Fashion Store" />
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Owner Name</label>
+
+            <input class="form-control"
+                   value="Admin" />
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input class="form-control"
+                   value="admin@gmail.com" />
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Phone</label>
+
+            <input class="form-control"
+                   value="+91 9876543210" />
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Address</label>
+
+            <textarea class="form-control" rows="4">Nagpur, Maharashtra</textarea>
+
+        </div>
+
+    </div>
+
+    <div class="form-actions">
+
+        <button class="btn-primary">
+
+            <i class="ri-save-line"></i>
+
+            Save Settings
+
+        </button>
+
+    </div>
+
+</div>

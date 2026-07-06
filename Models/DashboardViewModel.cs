@@ -12,12 +12,11 @@ namespace ClotheManagementSystem.Models
 
         public decimal TotalRevenue { get; set; }
 
-        public List<ProductSummary> RecentProducts { get; set; }
+        public List<Product> Products { get; set; }
 
-        public DashboardViewModel()
-        {
-            RecentProducts = new List<ProductSummary>();
-        }
+        public List<Product> RecentProducts { get; set; }
+
+        public List<Order> RecentOrders { get; set; }
     }
 
     public class ProductSummary

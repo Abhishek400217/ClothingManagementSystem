@@ -16,8 +16,21 @@
                 CLOTHING MANAGEMENT
             </span>
 
+            @{
+                string greet = "Good Morning";
+
+                if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 17)
+                {
+                    greet = "Good Afternoon";
+                }
+                else if (DateTime.Now.Hour >= 17)
+                {
+                    greet = "Good Evening";
+                }
+            }
+
             <h1>
-                Welcome Back,
+                @greet,
                 <span>Admin</span>
                 <span class="wave">👋</span>
             </h1>
@@ -48,21 +61,23 @@
 
         </div>
 
-        <div class="hero-right">
+        <div class="hero-buttons">
 
             <a href="@Url.Action("Create","Product")"
                class="btn-primary">
 
                 <i class="ri-add-line"></i>
 
-                <a href="@Url.Action("Index","Product")"
-                   class="btn-secondary">
+                Add Product
 
-                    <i class="ri-list-check-2"></i>
+            </a>
 
-                    View Products
+            <a href="@Url.Action("Index","Product")"
+               class="btn-secondary">
 
-                </a>
+                <i class="ri-list-check-2-line"></i>
+
+                View Products
 
             </a>
 
@@ -224,11 +239,17 @@
 
                     </div>
 
-                    <h4>
+                    <div style="padding:20px;">
 
-                        Analytics will appear here
+                        <p><strong>Total Products :</strong> @Model.TotalProducts</p>
 
-                    </h4>
+                        <p><strong>Total Categories :</strong> @Model.TotalCategories</p>
+
+                        <p><strong>Low Stock :</strong> @Model.LowStockProducts</p>
+
+                        <p><strong>Total Revenue :</strong> ₹@Model.TotalRevenue</p>
+
+                    </div>
 
                     <p>
 
@@ -258,7 +279,7 @@
 
 
 
-                @if (Model.RecentProducts.Any())
+                @if (Model.Products.Any())
                 {
 
                     <div class="product-list">
@@ -346,24 +367,20 @@
 
                 </h3>
 
-                <button>
-
+                <a href="@Url.Action("Create","Product")" class="btn-primary">
                     Add Product
+                </a>
 
-                </button>
+                <a href="@Url.Action("Create","Order")" class="btn-primary">
+                    Create Order
+                </a>
 
-                <button>
-
-                    Add Category
-
-                </button>
-
-                <button>
-
+                <a href="@Url.Action("Index","Report")" class="btn-primary">
                     View Reports
-
-                </button>
-
+                </a>
+                <a href="@Url.Action("Index","Settings")" class="btn-primary">
+                    Settings
+                </a>
             </div>
 
 
@@ -376,37 +393,49 @@
 
                 </h3>
 
-                <div class="empty-small">
-
-                    <i class="ri-alarm-warning-line"></i>
-
-                    <p>
-
-                        Low stock items will appear here.
-
-                    </p>
-
-                </div>
+                @if (Model.RecentProducts.Any(x => x.Stock <= 5))
+                {
+                    foreach (var item in Model.Products.Where(x => x.Stock <= 5))
+                    {
+                        <p>
+                            <strong>@item.ProductName</strong> - Stock : @item.Stock
+                        </p>
+                    }
+                }
+                else
+                {
+                    <p>No Low Stock Products.</p>
+                }
 
             </div>
 
             <div class="glass-card">
 
-                <h3>
+                <div class="card-header">
 
-                    Recent Activity
-
-                </h3>
-
-                <div class="empty-small">
+                    <h3>Recent Activity</h3>
 
                     <i class="ri-history-line"></i>
 
-                    <p>
+                </div>
 
-                        Latest inventory activity will appear here.
+                <div class="activity-list">
 
-                    </p>
+                    <div class="activity-item">
+                        ✔ Products Updated
+                    </div>
+
+                    <div class="activity-item">
+                        ✔ Orders Managed
+                    </div>
+
+                    <div class="activity-item">
+                        ✔ Reports Generated
+                    </div>
+
+                    <div class="activity-item">
+                        ✔ Inventory Synced
+                    </div>
 
                 </div>
 
@@ -417,8 +446,79 @@
         </div>
 
     </section>
+    <div class="glass-card" style="margin-top:30px;">
 
+        <div class="card-header">
+
+            <h3>Recent Orders</h3>
+
+        </div>
+
+        <table class="product-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Total</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if (Model.RecentOrders.Any())
+                {
+                    foreach (var item in Model.RecentOrders)
+                    {
+                        <tr>
+
+                            <td>@item.CustomerName</td>
+
+                            <td>@item.ProductName</td>
+
+                            <td>₹@item.TotalAmount</td>
+
+                            <td>
+
+                                @if (item.Status == "Pending")
+                                {
+                                    <span class="stock-low">@item.Status</span>
+                                }
+                                else if (item.Status == "Completed")
+                                {
+                                    <span class="stock-ok">@item.Status</span>
+                                }
+                                else if (item.Status == "Processing")
+                                {
+                                    <span class="category-badge">@item.Status</span>
+                                }
+                                else
+                                {
+                                    <span class="stock-low">@item.Status</span>
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
 </div>
+<footer style="text-align:center;padding:20px;color:#777;">
+
+    © 2026 Atelier OS | Clothing ERP
+
+</footer>
 @section scripts{
 
     <script src="~/Scripts/dashboard.js"></script>
