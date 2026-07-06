@@ -18,3 +18,34 @@ select,
 textarea {
     max-width: 280px;
 }
+.status-completed {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #b45309;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.status-processing {
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-weight: 600;
+}

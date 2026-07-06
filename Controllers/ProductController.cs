@@ -26,9 +26,14 @@ namespace ClotheManagementSystem.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Edit(int id)
         {
-            return View();
+            Product product = repo.GetById(id);
+
+            if (product == null)
+                return HttpNotFound();
+
+            return View(product);
         }
         [HttpPost]
         public ActionResult Create(Product product)
@@ -47,13 +52,6 @@ namespace ClotheManagementSystem.Controllers
             return View(product);
         }
 
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            Product product = repo.GetById(id);
-            return View(product);
-        }
-
         [HttpPost]
         public ActionResult Edit(Product product)
         {
@@ -62,13 +60,11 @@ namespace ClotheManagementSystem.Controllers
             if (!ModelState.IsValid)
                 return View(product);
 
-            if (repo.Update(product))
-            {
-                TempData["Success"] = "Product Updated Successfully";
-                return RedirectToAction("Index");
-            }
+            repo.Update(product);
 
-            return View(product);
+            TempData["Success"] = "Product Updated Successfully";
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)

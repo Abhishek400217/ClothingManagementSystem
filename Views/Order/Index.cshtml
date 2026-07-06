@@ -1,5 +1,29 @@
 ﻿@model IEnumerable<ClotheManagementSystem.Models.Order>
 
+<div class="table-header">
+
+    @using (Html.BeginForm("Index", "Order", FormMethod.Get))
+    {
+        <div class="search-box">
+
+            <input type="text"
+                   name="search"
+                   class="search-input"
+                   placeholder="Search Order..."
+                   value="@Request["search"]"
+                   onkeyup="autoSearch(this)" />
+
+            <button class="search-btn">
+
+                <i class="ri-search-2-line"></i>
+
+            </button>
+
+        </div>
+    }
+
+</div>
+
 <div class="page-title">
 
     <div>
@@ -66,7 +90,26 @@
 
                         <td>₹@item.TotalAmount</td>
 
-                        <td>@item.Status</td>
+                        <td>
+
+                            @if (item.Status == "Completed")
+                            {
+                                <span class="status-completed">Completed</span>
+                            }
+                            else if (item.Status == "Pending")
+                            {
+                                <span class="status-pending">Pending</span>
+                            }
+                            else if (item.Status == "Processing")
+                            {
+                                <span class="status-processing">Processing</span>
+                            }
+                            else
+                            {
+                                <span class="status-cancelled">Cancelled</span>
+                            }
+
+                        </td>
 
                         <td>
 
@@ -79,7 +122,7 @@
 
                             <a href="@Url.Action("Delete","Order",new{id=item.OrderId})"
                                class="btn-delete"
-                               onclick="return confirm('Delete Order?')">
+                               onclick="return deleteOrder(event,this.href);">
 
                                 <i class="ri-delete-bin-6-line"></i>
 
@@ -108,3 +151,62 @@
     </table>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+    function deleteOrder(e, url) {
+
+        e.preventDefault();
+
+        Swal.fire({
+
+            title: 'Delete Order?',
+            text: 'This action cannot be undone.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, Delete'
+
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+
+                window.location.href = url;
+
+            }
+
+        });
+
+    }
+
+</script>
+@if (TempData["Success"] != null)
+{
+    <script>
+
+        let timer;
+
+        function autoSearch(input) {
+
+            clearTimeout(timer);
+
+            timer = setTimeout(function () {
+
+                input.form.submit();
+
+            }, 300);
+
+        }
+
+
+        Swal.fire({
+        icon:'success',
+        title:'@TempData["Success"]',
+        showConfirmButton:false,
+        timer:1800
+        });
+
+    </script>
+}

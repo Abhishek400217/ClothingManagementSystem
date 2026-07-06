@@ -95,9 +95,8 @@ namespace ClotheManagementSystem.Repository
 
                     con.Open();
 
-                    int rows = cmd.ExecuteNonQuery();
-
-                    return rows > 0;
+                    cmd.ExecuteNonQuery();
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -108,22 +107,31 @@ namespace ClotheManagementSystem.Repository
 
         public bool Update(Product product)
         {
-            using (SqlConnection con = db.GetConnection())
+            try
             {
-                SqlCommand cmd = new SqlCommand("USP_UpdateProduct", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection con = db.GetConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("USP_UpdateProduct", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@ProductId", product.ProductId);
-                cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
-                cmd.Parameters.AddWithValue("@Category", product.Category);
-                cmd.Parameters.AddWithValue("@Price", product.Price);
-                cmd.Parameters.AddWithValue("@Stock", product.Stock);
-                cmd.Parameters.AddWithValue("@Description", product.Description ?? "");
-                cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl ?? "");
+                    cmd.Parameters.AddWithValue("@ProductId", product.ProductId);
+                    cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    cmd.Parameters.AddWithValue("@Category", product.Category);
+                    cmd.Parameters.AddWithValue("@Price", product.Price);
+                    cmd.Parameters.AddWithValue("@Stock", product.Stock);
+                    cmd.Parameters.AddWithValue("@Description", product.Description ?? "");
+                    cmd.Parameters.AddWithValue("@ImageUrl", product.ImageUrl ?? "");
 
-                con.Open();
+                    con.Open();
 
-                return cmd.ExecuteNonQuery() > 0;
+                    cmd.ExecuteNonQuery();
+                    return true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -138,7 +146,8 @@ namespace ClotheManagementSystem.Repository
 
                 con.Open();
 
-                return cmd.ExecuteNonQuery() > 0;
+                cmd.ExecuteNonQuery();
+                return true;
             }
         }
     }

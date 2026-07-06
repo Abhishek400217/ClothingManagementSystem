@@ -1,6 +1,7 @@
-﻿using System.Web.Mvc;
-using ClotheManagementSystem.Models;
+﻿using ClotheManagementSystem.Models;
 using ClotheManagementSystem.Repository;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace ClotheManagementSystem.Controllers
 {
@@ -9,9 +10,20 @@ namespace ClotheManagementSystem.Controllers
         OrderRepository repo = new OrderRepository();
 
         // Order List
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var orders = repo.GetAll();
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.ToLower();
+
+                orders = orders.Where(x =>
+                    x.CustomerName.ToLower().Contains(search) ||
+                    x.ProductName.ToLower().Contains(search)
+                ).ToList();
+            }
+
             return View(orders);
         }
 
@@ -35,6 +47,7 @@ namespace ClotheManagementSystem.Controllers
 
             repo.Insert(order);
 
+            TempData["Success"] = "Order Added Successfully";
             return RedirectToAction("Index");
         }
 
@@ -55,6 +68,7 @@ namespace ClotheManagementSystem.Controllers
 
             repo.Update(order);
 
+            TempData["Success"] = "Order Updated Successfully";
             return RedirectToAction("Index");
         }
 
@@ -62,7 +76,7 @@ namespace ClotheManagementSystem.Controllers
         public ActionResult Delete(int id)
         {
             repo.Delete(id);
-
+            TempData["Success"] = "Order Deleted Successfully";
             return RedirectToAction("Index");
         }
     }
