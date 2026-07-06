@@ -1,102 +1,133 @@
-@{
-    ViewBag.Title = "Settings";
-}
+﻿<div class="glass-card report-header">
 
-<div class="page-title">
+    <h1>Business Report</h1>
 
-    <div>
+    <p>
+        Generated :
+        @DateTime.Now.ToString("dd MMM yyyy hh:mm tt")
+    </p>
 
-        <span class="hero-badge">
+    <a href="@Url.Action("DownloadPdf","Report")"
+       class="btn-primary">
 
-            SYSTEM SETTINGS
-
-        </span>
-
-        <h1>Settings</h1>
-
-        <p>Manage application preferences.</p>
-
-    </div>
-
-</div>
-<div style="display:flex;gap:10px;">
-
-    <button class="btn-primary" onclick="window.print()">
-        <i class="ri-printer-line"></i>
-        Print
-    </button>
-
-    <button class="btn-primary">
-        <i class="ri-file-excel-line"></i>
-        Export Excel
-    </button>
-
-    <button class="btn-primary">
         <i class="ri-file-pdf-line"></i>
-        Export PDF
-    </button>
+
+        Download PDF
+
+    </a>
 
 </div>
+
+
 <div class="glass-card">
 
-    <div class="form-grid">
+    <h2>Business Summary</h2>
 
-        <div class="form-group">
+    <table class="product-table">
 
-            <label>Shop Name</label>
+        <tr>
+            <td>Total Products</td>
+            <td>@Model.TotalProducts</td>
+        </tr>
 
-            <input class="form-control"
-                   value="Fashion Store" />
+        <tr>
+            <td>Total Orders</td>
+            <td>@Model.TotalOrders</td>
+        </tr>
 
-        </div>
+        <tr>
+            <td>Low Stock Products</td>
+            <td>@Model.LowStockProducts</td>
+        </tr>
 
-        <div class="form-group">
+        <tr>
+            <td>Total Revenue</td>
+            <td>₹@Model.TotalRevenue</td>
+        </tr>
 
-            <label>Owner Name</label>
+    </table>
 
-            <input class="form-control"
-                   value="Admin" />
+</div>
 
-        </div>
 
-        <div class="form-group">
+<br />
 
-            <label>Email</label>
+<div class="glass-card">
 
-            <input class="form-control"
-                   value="admin@gmail.com" />
+    <h2>Recent Orders</h2>
 
-        </div>
+    <table class="product-table">
 
-        <div class="form-group">
+        <thead>
 
-            <label>Phone</label>
+            <tr>
 
-            <input class="form-control"
-                   value="+91 9876543210" />
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Amount</th>
 
-        </div>
+            </tr>
 
-        <div class="form-group">
+        </thead>
 
-            <label>Address</label>
+        <tbody>
 
-            <textarea class="form-control" rows="4">Nagpur, Maharashtra</textarea>
+            @foreach (var item in Model.RecentOrders)
+            {
+                <tr>
 
-        </div>
+                    <td>@item.OrderId</td>
+                    <td>@item.CustomerName</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Status</td>
+                    <td>₹@item.TotalAmount</td>
 
-    </div>
+                </tr>
+            }
 
-    <div class="form-actions">
+        </tbody>
 
-        <button class="btn-primary">
+    </table>
 
-            <i class="ri-save-line"></i>
+</div>
 
-            Save Settings
+<br />
 
-        </button>
+<div class="glass-card">
 
-    </div>
+    <h2>Low Stock Products</h2>
+
+    <table class="product-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Product</th>
+                <th>Category</th>
+                <th>Stock</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.LowStockList)
+            {
+                <tr>
+
+                    <td>@item.ProductName</td>
+                    <td>@item.Category</td>
+                    <td>@item.Stock</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
 
 </div>

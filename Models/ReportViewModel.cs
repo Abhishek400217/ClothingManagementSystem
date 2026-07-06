@@ -5,16 +5,13 @@ namespace ClotheManagementSystem.Models
     public class ReportViewModel
     {
         public int TotalProducts { get; set; }
-
         public int TotalOrders { get; set; }
-
         public decimal TotalRevenue { get; set; }
 
-        public int LowStock { get; set; }
+        public int LowStockProducts { get; set; }
 
-        public List<Product> Products { get; set; }
+        public List<Order> RecentOrders { get; set; }
 
-        public List<Order> Orders { get; set; }
-
+        public List<Product> LowStockList { get; set; }
     }
 }

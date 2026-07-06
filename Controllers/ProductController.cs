@@ -24,6 +24,7 @@ namespace ClotheManagementSystem.Controllers
 
             return View(products);
         }
+        
 
         [HttpGet]
         public ActionResult Edit(int id)
@@ -35,6 +36,15 @@ namespace ClotheManagementSystem.Controllers
 
             return View(product);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            Product product = new Product();
+            product.IsActive = true;
+            return View(product);
+        }
+
         [HttpPost]
         public ActionResult Create(Product product)
         {
