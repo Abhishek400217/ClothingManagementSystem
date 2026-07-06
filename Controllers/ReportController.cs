@@ -1,14 +1,18 @@
-﻿using ClotheManagementSystem.Models;
+﻿using ClotheManagementSystem.Filters;
+using ClotheManagementSystem.Models;
 using ClotheManagementSystem.Repository;
-using System.Linq;
-using System.Web.Mvc;
-using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.IO;
+using System.Linq;
+using System.Web.Mvc;
 namespace ClotheManagementSystem.Controllers
 {
+    [AdminAuthorize]
+
     public class ReportController : Controller
     {
+
         ProductRepository productRepo = new ProductRepository();
         OrderRepository orderRepo = new OrderRepository();
 

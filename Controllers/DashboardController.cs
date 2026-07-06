@@ -1,10 +1,13 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using ClotheManagementSystem.Filters;
 using ClotheManagementSystem.Models;
 using ClotheManagementSystem.Repository;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace ClotheManagementSystem.Controllers
 {
+    [AdminAuthorize]
+
     public class DashboardController : Controller
     {
         ProductRepository productRepo = new ProductRepository();

@@ -134,6 +134,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="Filters\AdminAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,6 +223,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\NewFolder1\" />
+    <Folder Include="Views\AdminAuthorize\" />
     <Folder Include="Views\DashboardRepository\" />
     <Folder Include="Views\DashboardViewModel\" />
     <Folder Include="Views\IOrderRepository\" />
