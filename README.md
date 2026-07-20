@@ -1,43 +1,35 @@
 # 👔 Atelier OS – Clothing Management System
 
-A modern Inventory Management System built for clothing stores to simplify product management, order tracking and inventory monitoring.
+Atelier OS is a Clothing Inventory Management System that I built to solve a common problem many small clothing stores face—managing products, inventory, and customer orders efficiently.
 
-Instead of maintaining products and orders in Excel sheets or paper registers, this application provides a centralized admin dashboard where everything can be managed from one place.
+Instead of maintaining everything in Excel sheets or notebooks, this application provides a simple admin dashboard where the entire store can be managed from one place.
 
-This project was developed as a full-stack ASP.NET MVC application following the Repository Pattern and using SQL Server Stored Procedures for database operations.
-
----
-
-# 📖 About the Project
-
-Managing inventory manually becomes difficult as the number of products and customer orders grows.
-
-Common problems include:
-
-- Products going out of stock without notice
-- Manual revenue calculation
-- Difficulty tracking customer orders
-- No centralized business overview
-- Time-consuming report generation
-
-**Atelier OS** solves these problems by providing a clean admin dashboard where products, inventory and orders can be managed efficiently.
+The goal of this project wasn't just to create CRUD operations. I wanted to build something that feels like a real business application while improving my understanding of ASP.NET MVC architecture, SQL Server, and backend development.
 
 ---
 
-# ✨ Key Features
+## 🚀 Why I Built This
 
-## 🔐 Authentication
+While learning ASP.NET MVC, I wanted to work on a project that involved more than just basic CRUD.
 
-- Admin Login
-- Session-based Authentication
-- Protected Modules
-- Logout Confirmation
+I chose an Inventory Management System because it combines several real-world concepts such as:
+
+- Inventory management
+- Order processing
+- Business reporting
+- Dashboard design
+- Authentication
+- SQL Server stored procedures
+
+Building this project helped me understand how different modules work together in a business application.
 
 ---
 
-## 📊 Dashboard
+## ✨ Features
 
-The dashboard provides a quick overview of the business.
+### Dashboard
+
+The dashboard gives the administrator a quick overview of the business.
 
 It displays:
 
@@ -49,245 +41,127 @@ It displays:
 - Recent Orders
 - Business Summary
 
-This allows the admin to understand the overall business performance at a glance.
-
 ---
 
-## 👕 Product Management
+### Product Management
 
-The Product module allows complete inventory management.
+Products can be added, updated, searched and removed from the system.
 
-### Features
-
-- Add Product
-- Update Product
-- Delete Product
-- Search Products
-- Product Details
-- Category Management
-- Inventory Tracking
-
-Each product contains:
+Each product stores:
 
 - Product Name
 - Category
 - Price
-- Available Stock
+- Stock
 - Description
 - Product Image
 
 ---
 
-## 📦 Order Management
+### Order Management
 
 Orders can be managed directly from the admin panel.
 
-### Features
+The administrator can:
 
-- Create Order
-- Update Order
-- Delete Order
+- Create Orders
+- Update Orders
+- Delete Orders
 - Search Orders
 
-Supported Order Status
-
-- Pending
-- Processing
-- Completed
-- Cancelled
-
-Total Amount is calculated automatically based on quantity and price.
+The total amount is calculated automatically based on quantity and price.
 
 ---
 
-## 📈 Reports
+### Reports
 
-The Reports module generates a business summary containing:
+The Reports module provides a quick business summary.
 
-- Total Products
-- Total Orders
+It includes:
+
 - Total Revenue
-- Low Stock Products
+- Total Orders
 - Recent Orders
+- Low Stock Products
 
-The report can also be exported as a PDF.
-
----
-
-## ⚙️ Settings
-
-The Settings page contains read-only business information.
-
-- Store Name
-- Owner Information
-- Contact Details
-- Application Version
-- Database
-- Framework
-- Theme
+Reports can also be downloaded as a PDF.
 
 ---
 
-# 🖥 Screenshots
+### Settings
 
-| Login | Dashboard |
-|-------|-----------|
-| *(Add Screenshot)* | *(Add Screenshot)* |
-
-| Products | Orders |
-|----------|---------|
-| *(Add Screenshot)* | *(Add Screenshot)* |
-
-| Reports | Settings |
-|----------|-----------|
-| *(Add Screenshot)* | *(Add Screenshot)* |
+The Settings page contains read-only business information such as store details, application version, framework, and database information.
 
 ---
 
-# 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-### Frontend
+**Frontend**
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
-- Razor View Engine
+- Razor Views
 
-### Backend
+**Backend**
 
 - ASP.NET MVC 5
 - C#
 - ADO.NET
 - Repository Pattern
 
-### Database
+**Database**
 
 - SQL Server
 - Stored Procedures
 
-### Libraries
+**Libraries**
 
 - SweetAlert2
-- iTextSharp PDF
+- iTextSharp
 - Remix Icons
 
 ---
 
-# 📂 Project Structure
+## 📚 What I Learned
 
-```
-Controllers
-Models
-Repository
-DAL
-Views
-Content
-Scripts
-SQL Scripts
-```
+Working on this project helped me gain practical experience with:
 
----
-
-# 📋 Database Design
-
-### Main Tables
-
-- Admin
-- Products
-- Orders
-
-### Stored Procedures
-
-Products
-
-- USP_AddProduct
-- USP_UpdateProduct
-- USP_DeleteProduct
-- USP_GetProducts
-- USP_GetProductById
-
-Orders
-
-- USP_AddOrder
-- USP_UpdateOrder
-- USP_DeleteOrder
-- USP_GetOrders
-- USP_GetOrderById
-
----
-
-# 🚀 Application Workflow
-
-```text
-Admin Login
-      │
-      ▼
-Dashboard
-      │
- ┌────┼─────────────┐
- │    │             │
- ▼    ▼             ▼
-Products Orders   Reports
- │        │          │
- ▼        ▼          ▼
-CRUD    CRUD     PDF Export
-      │
-      ▼
-Settings
-```
-
----
-
-# 💡 What I Learned
-
-While building this project I gained practical experience with:
-
-- ASP.NET MVC Architecture
+- ASP.NET MVC
 - Repository Pattern
 - SQL Server Stored Procedures
 - CRUD Operations
-- Session Authentication
-- Dashboard Design
+- Session-based Authentication
+- Business Dashboard Design
 - PDF Report Generation
-- Search Functionality
-- Business Logic Implementation
+- Organizing a medium-sized MVC project
+
+More importantly, it gave me a better understanding of how a real inventory management system is structured.
 
 ---
 
-# 🔮 Future Improvements
+## 🔮 Future Improvements
 
-Features planned for future versions:
+Some features I'd like to add in future versions:
 
 - Image Upload
-- Sales Analytics Dashboard
-- Charts & Graphs
-- Supplier Management
-- Customer Management
-- Invoice Generation
+- Sales Analytics Charts
 - Excel Export
+- Invoice Generation
+- Supplier Management
+- Customer Module
 - Email Notifications
 
 ---
 
-# 👨‍💻 Developer
+## 👨‍💻 Developer
 
 **Abhishek Karande**
 
-Java Full Stack Developer
+B.Tech Information Technology
 
-**Tech Interests**
+Aspiring Full Stack Developer passionate about building practical web applications and continuously improving my backend development skills.
 
-- Java
-- Spring Boot
-- ASP.NET MVC
-- SQL Server
-- React
-- Full Stack Development
+If you have any suggestions or feedback, I'd be happy to hear them.
 
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a **⭐ Star** on GitHub.
-
-Feedback and suggestions are always welcome.
+⭐ If you found this project interesting, consider giving it a star.
