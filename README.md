@@ -1,27 +1,28 @@
-# 👔 Atelier OS - Clothing Management System
+# 👔 Atelier OS – Clothing Management System
 
-Atelier OS is a simple Clothing Inventory Management System built using **ASP.NET MVC 5**, **C#**, and **SQL Server**.
+Atelier OS is a Clothing Inventory Management System built using **ASP.NET MVC 5**, **C#**, and **SQL Server**.
 
-I built this project to practice full-stack development by creating a real-world application. The system helps a store owner manage products, customer orders, inventory, and business reports from one dashboard.
+The goal of this project is to help clothing stores manage their daily operations from a single dashboard. It allows the admin to manage products, customer orders, inventory, and business reports in a simple and organized way.
+
+This project was built to gain practical experience with ASP.NET MVC architecture, SQL Server, ADO.NET, and real-world business workflows.
 
 ---
 
-## 📌 Why I Built This
+## 🚀 Project Overview
 
-While learning ASP.NET MVC, I wanted to build more than just a basic CRUD project.
+Managing products and customer orders manually can become difficult as the business grows.
 
-A clothing inventory system allowed me to work with different modules like products, orders, reports, authentication, and dashboard design in a single application.
-
-This project helped me understand how a real business application is developed.
+Atelier OS provides a simple admin panel where everything can be managed in one place. From adding new products to generating business reports, the system is designed to make inventory management easier and more organized.
 
 ---
 
 # ✨ Features
 
-## 🔐 Admin Login
+## 🔐 Admin Authentication
 
 - Secure Admin Login
-- Session Authentication
+- Session-Based Authentication
+- Protected Dashboard Access
 - Logout Confirmation
 
 ---
@@ -30,7 +31,7 @@ This project helped me understand how a real business application is developed.
 
 The dashboard gives a quick overview of the business.
 
-It shows:
+It displays:
 
 - Total Products
 - Total Categories
@@ -38,30 +39,38 @@ It shows:
 - Low Stock Products
 - Recent Products
 - Recent Orders
+- Business Summary
+
+This helps the admin understand the current business status without checking multiple pages.
 
 ---
 
 ## 👕 Product Management
 
-The admin can:
+The Product module allows the admin to manage the complete inventory.
 
-- Add Products
-- Edit Products
-- Delete Products
+Features include:
+
+- Add Product
+- Edit Product
+- Delete Product
 - Search Products
+- Manage Product Details
 
-Each product includes:
+Each product stores:
 
 - Product Name
 - Category
 - Price
-- Stock
+- Available Stock
 - Description
 - Product Image
 
 ---
 
 ## 📦 Order Management
+
+The Order module helps manage customer orders.
 
 The admin can:
 
@@ -70,20 +79,22 @@ The admin can:
 - Delete Orders
 - Search Orders
 
-Order status includes:
+Supported order status:
 
 - Pending
 - Processing
 - Completed
 - Cancelled
 
-The total amount is calculated automatically.
+The total amount is calculated automatically based on quantity and price.
 
 ---
 
 ## 📄 Reports
 
-The Reports page shows:
+The Reports module provides a quick business summary.
+
+It includes:
 
 - Total Products
 - Total Orders
@@ -97,24 +108,25 @@ Reports can also be downloaded as a PDF.
 
 ## ⚙️ Settings
 
-The Settings page displays:
+The Settings page contains important system information in read-only mode.
+
+It displays:
 
 - Store Information
 - Owner Details
+- Contact Information
 - Application Version
-- Database
 - Framework
-
-These details are read-only.
+- Database
 
 ---
 
-# 🛠 Tech Stack
+# 🛠️ Tech Stack
 
 ### Frontend
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
 - Razor Views
 
@@ -127,7 +139,7 @@ These details are read-only.
 
 ### Database
 
-- SQL Server
+- Microsoft SQL Server
 - Stored Procedures
 
 ### Libraries
@@ -141,19 +153,32 @@ These details are read-only.
 # 📂 Project Structure
 
 ```
-Controllers
-Models
-Repository
-DAL
-Views
-Content
-Scripts
-SQL Scripts
+ClotheManagementSystem
+│
+├── Controllers
+├── Models
+├── Repository
+├── DAL
+├── Views
+├── Content
+├── Scripts
+└── SQL Scripts
 ```
 
 ---
 
-# 🚀 Project Workflow
+# 📋 Main Modules
+
+- Dashboard
+- Product Management
+- Order Management
+- Reports
+- Settings
+- Authentication
+
+---
+
+# 🔄 Application Workflow
 
 ```
 Admin Login
@@ -161,13 +186,13 @@ Admin Login
       ▼
 Dashboard
       │
- ┌────┼────────────┐
- │    │            │
- ▼    ▼            ▼
-Products Orders  Reports
- │       │         │
- ▼       ▼         ▼
-CRUD    CRUD    PDF Report
+ ┌────┼──────────────┐
+ │    │              │
+ ▼    ▼              ▼
+Products Orders    Reports
+ │        │            │
+ ▼        ▼            ▼
+CRUD    CRUD      PDF Report
       │
       ▼
 Settings
@@ -177,28 +202,28 @@ Settings
 
 # 📚 What I Learned
 
-While building this project, I learned:
+Building this project helped me improve my understanding of:
 
 - ASP.NET MVC Architecture
 - CRUD Operations
 - SQL Server Stored Procedures
 - Repository Pattern
-- Session Authentication
-- Dashboard Design
-- PDF Generation
-- Building a complete business application
+- Session-Based Authentication
+- Business Dashboard Design
+- PDF Report Generation
+- Building a complete inventory management system
 
 ---
 
 # 🔮 Future Improvements
 
-Some features I would like to add in the future:
+Some features I plan to add in future versions:
 
-- Image Upload
-- Sales Charts
+- Product Image Upload
+- Sales Analytics Dashboard
 - Excel Export
 - Invoice Generation
-- Customer Module
+- Customer Management
 - Supplier Management
 
 ---
@@ -209,8 +234,8 @@ Some features I would like to add in the future:
 
 B.Tech Information Technology
 
-I enjoy building practical web applications and improving my backend development skills.
+Passionate about building practical web applications and continuously improving my full-stack development skills.
 
-If you have any suggestions or feedback, feel free to share them.
+If you have any suggestions or feedback, feel free to connect with me.
 
-⭐ If you like this project, please consider giving it a star.
+⭐ If you found this project helpful, consider giving it a star.
