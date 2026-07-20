@@ -1,37 +1,36 @@
-# 👔 Atelier OS – Clothing Management System
+# 👔 Atelier OS - Clothing Management System
 
-Atelier OS is a Clothing Inventory Management System that I built to solve a common problem many small clothing stores face—managing products, inventory, and customer orders efficiently.
+Atelier OS is a simple Clothing Inventory Management System built using **ASP.NET MVC 5**, **C#**, and **SQL Server**.
 
-Instead of maintaining everything in Excel sheets or notebooks, this application provides a simple admin dashboard where the entire store can be managed from one place.
-
-The goal of this project wasn't just to create CRUD operations. I wanted to build something that feels like a real business application while improving my understanding of ASP.NET MVC architecture, SQL Server, and backend development.
+I built this project to practice full-stack development by creating a real-world application. The system helps a store owner manage products, customer orders, inventory, and business reports from one dashboard.
 
 ---
 
-## 🚀 Why I Built This
+## 📌 Why I Built This
 
-While learning ASP.NET MVC, I wanted to work on a project that involved more than just basic CRUD.
+While learning ASP.NET MVC, I wanted to build more than just a basic CRUD project.
 
-I chose an Inventory Management System because it combines several real-world concepts such as:
+A clothing inventory system allowed me to work with different modules like products, orders, reports, authentication, and dashboard design in a single application.
 
-- Inventory management
-- Order processing
-- Business reporting
-- Dashboard design
-- Authentication
-- SQL Server stored procedures
-
-Building this project helped me understand how different modules work together in a business application.
+This project helped me understand how a real business application is developed.
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-### Dashboard
+## 🔐 Admin Login
 
-The dashboard gives the administrator a quick overview of the business.
+- Secure Admin Login
+- Session Authentication
+- Logout Confirmation
 
-It displays:
+---
+
+## 📊 Dashboard
+
+The dashboard gives a quick overview of the business.
+
+It shows:
 
 - Total Products
 - Total Categories
@@ -39,15 +38,19 @@ It displays:
 - Low Stock Products
 - Recent Products
 - Recent Orders
-- Business Summary
 
 ---
 
-### Product Management
+## 👕 Product Management
 
-Products can be added, updated, searched and removed from the system.
+The admin can:
 
-Each product stores:
+- Add Products
+- Edit Products
+- Delete Products
+- Search Products
+
+Each product includes:
 
 - Product Name
 - Category
@@ -58,64 +61,76 @@ Each product stores:
 
 ---
 
-### Order Management
+## 📦 Order Management
 
-Orders can be managed directly from the admin panel.
-
-The administrator can:
+The admin can:
 
 - Create Orders
 - Update Orders
 - Delete Orders
 - Search Orders
 
-The total amount is calculated automatically based on quantity and price.
+Order status includes:
+
+- Pending
+- Processing
+- Completed
+- Cancelled
+
+The total amount is calculated automatically.
 
 ---
 
-### Reports
+## 📄 Reports
 
-The Reports module provides a quick business summary.
+The Reports page shows:
 
-It includes:
-
-- Total Revenue
+- Total Products
 - Total Orders
-- Recent Orders
+- Total Revenue
 - Low Stock Products
+- Recent Orders
 
 Reports can also be downloaded as a PDF.
 
 ---
 
-### Settings
+## ⚙️ Settings
 
-The Settings page contains read-only business information such as store details, application version, framework, and database information.
+The Settings page displays:
+
+- Store Information
+- Owner Details
+- Application Version
+- Database
+- Framework
+
+These details are read-only.
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠 Tech Stack
 
-**Frontend**
+### Frontend
 
 - HTML
 - CSS
 - JavaScript
 - Razor Views
 
-**Backend**
+### Backend
 
 - ASP.NET MVC 5
 - C#
 - ADO.NET
 - Repository Pattern
 
-**Database**
+### Database
 
 - SQL Server
 - Stored Procedures
 
-**Libraries**
+### Libraries
 
 - SweetAlert2
 - iTextSharp
@@ -123,45 +138,79 @@ The Settings page contains read-only business information such as store details,
 
 ---
 
-## 📚 What I Learned
+# 📂 Project Structure
 
-Working on this project helped me gain practical experience with:
-
-- ASP.NET MVC
-- Repository Pattern
-- SQL Server Stored Procedures
-- CRUD Operations
-- Session-based Authentication
-- Business Dashboard Design
-- PDF Report Generation
-- Organizing a medium-sized MVC project
-
-More importantly, it gave me a better understanding of how a real inventory management system is structured.
+```
+Controllers
+Models
+Repository
+DAL
+Views
+Content
+Scripts
+SQL Scripts
+```
 
 ---
 
-## 🔮 Future Improvements
+# 🚀 Project Workflow
 
-Some features I'd like to add in future versions:
+```
+Admin Login
+      │
+      ▼
+Dashboard
+      │
+ ┌────┼────────────┐
+ │    │            │
+ ▼    ▼            ▼
+Products Orders  Reports
+ │       │         │
+ ▼       ▼         ▼
+CRUD    CRUD    PDF Report
+      │
+      ▼
+Settings
+```
+
+---
+
+# 📚 What I Learned
+
+While building this project, I learned:
+
+- ASP.NET MVC Architecture
+- CRUD Operations
+- SQL Server Stored Procedures
+- Repository Pattern
+- Session Authentication
+- Dashboard Design
+- PDF Generation
+- Building a complete business application
+
+---
+
+# 🔮 Future Improvements
+
+Some features I would like to add in the future:
 
 - Image Upload
-- Sales Analytics Charts
+- Sales Charts
 - Excel Export
 - Invoice Generation
-- Supplier Management
 - Customer Module
-- Email Notifications
+- Supplier Management
 
 ---
 
-## 👨‍💻 Developer
+# 👨‍💻 Developed By
 
 **Abhishek Karande**
 
 B.Tech Information Technology
 
-Aspiring Full Stack Developer passionate about building practical web applications and continuously improving my backend development skills.
+I enjoy building practical web applications and improving my backend development skills.
 
-If you have any suggestions or feedback, I'd be happy to hear them.
+If you have any suggestions or feedback, feel free to share them.
 
-⭐ If you found this project interesting, consider giving it a star.
+⭐ If you like this project, please consider giving it a star.
