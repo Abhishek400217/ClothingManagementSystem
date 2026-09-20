@@ -8,7 +8,7 @@ This project was built to gain practical experience with ASP.NET MVC architectur
 
 ---
 
-## 🚀 Project Overview
+# 🚀 Project Overview
 
 Managing products and customer orders manually can become difficult as the business grows.
 
@@ -27,7 +27,7 @@ Atelier OS provides a simple admin panel where everything can be managed in one 
 
 ---
 
-## 📊 Dashboard
+# 📊 Dashboard
 
 The dashboard gives a quick overview of the business.
 
@@ -45,7 +45,7 @@ This helps the admin understand the current business status without checking mul
 
 ---
 
-## 👕 Product Management
+# 👕 Product Management
 
 The Product module allows the admin to manage the complete inventory.
 
@@ -90,7 +90,7 @@ The total amount is calculated automatically based on quantity and price.
 
 ---
 
-## 📄 Reports
+# 📄 Reports
 
 The Reports module provides a quick business summary.
 
