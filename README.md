@@ -6,7 +6,7 @@ The goal of this project is to help clothing stores manage their daily operation
 
 This project was built to gain practical experience with ASP.NET MVC architecture, SQL Server, ADO.NET, and real-world business workflows.
 
----
+---   
 
 # 🚀 Project Overview
 
