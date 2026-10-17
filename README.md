@@ -5,7 +5,7 @@ Atelier OS is a Clothing Inventory Management System built using **ASP.NET MVC 5
 The goal of this project is to help clothing stores manage their daily operations from a single dashboard. It allows the admin to manage products, customer orders, inventory, and business reports in a simple and organized way.
 
 This project was built to gain practical experience with ASP.NET MVC architecture, SQL Server, ADO.NET, and real-world business workflows.
-
+      
 ---   
 
 # 🚀 Project Overview
